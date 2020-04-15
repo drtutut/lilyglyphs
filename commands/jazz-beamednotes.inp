@@ -30,83 +30,52 @@
 %                                                                        %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\NeedsTeXFormat{LaTeX2e} 
-\ProvidesPackage{lilyglyphs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This file is part of the lilyglyphs package %
+% and defines one subset of glyphs            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Introduce key=value options
-\RequirePackage{keyval}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamed notes, jazz style %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Necessary for calculations.
-% TODO: Is that really necessary or can it be achieved much cheaper?
-\RequirePackage{pgf}
+%------------------------------
+% Two notes connected by a beam
 
-% Create a vertically stacked box (time signatures)
-\RequirePackage[export]{adjustbox}
+% two beamed quavers with diagonal beam
+% created by buildglyphimages.py on 2020-04-15
+\newcommand*{\twoBeamedQuaversJazz}[1][]{%
+    \setkeys{lilyDesignOptions}{scale=0.7,raise=-0.4}%
+    \lilyPrintImage[#1]{lily-twoBeamedQuaversJazz}%
+}
 
-%%%%%%%%%%%%%%%%%%%%%%
-% Core functionality %
+%--------------------------------
+% Three notes connected by a beam
 
-% select from the optical sizes fonts
-\input{core/opticals.inp}
+% three beamed quavers
+% created by lily-image-commands.py on 2020-04-15
+\newcommand*{\threeBeamedQuaversJazz}[1][]{%
+    \setkeys{lilyDesignOptions}{scale=0.9,raise=-0.6}%
+    \lilyPrintImage[#1]{lily-threeBeamedQuaversJazz}%
+}
 
-% include the functionality for the key=value options
-\input{core/keyval.inp}
+% three beamed quavers, second dotted
+% created by lily-image-commands.py on 2020-04-15
+\newcommand*{\threeBeamedQuaversIJazz}[1][]{%
+    \setkeys{lilyDesignOptions}{scale=0.9,raise=-0.6}%
+    \lilyPrintImage[#1]{lily-threeBeamedQuaversIJazz}%
+}
 
-% include the basic functionality to select and print glyphs
-\input{core/genericAccess.inp}
+% three beamed quavers, first dotted
+% created by lily-image-commands.py on 2020-04-15
+\newcommand*{\threeBeamedQuaversIIJazz}[1][]{%
+    \setkeys{lilyDesignOptions}{scale=0.9,raise=-0.6}%
+    \lilyPrintImage[#1]{lily-threeBeamedQuaversIIJazz}%
+}
 
-% include logic and functionality to create dotted symbols
-\input{core/dotted.inp}
-
-% Core functionality %
-%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Definitions of the glyphs in groups                  %
-% corresponding to the glyph list in the LilyPond docs %
-
-\input{commands/clefs.inp}
-
-\input{commands/numbers.inp}
-
-\input{commands/timesignatures.inp}
-
-\input{commands/dynamics.inp}
-
-\input{commands/accidentals.inp}
-
-%\input{commands/noteheads.inp}
-
-\input{commands/rests.inp}
-
-\input{commands/scripts.inp}
-
-\input{commands/accordion.inp}
-
-% Definitions of complex glyphs created with LilyPond
-% and included as image files
-
-\input{commands/singlenotes.inp}
-
-\input{commands/beamednotes.inp}
-
-\input{commands/fancyexamples.inp}
-
-% Definitions of complex glyphs with jazz style (using lilyjazz font),
-% and included as image files.
-
-\input{commands/jazz-beamednotes.inp}
-
-\input{commands/jazz-dynamics.inp}
-
-\input{commands/jazz-singlenotes.inp}
-
-% End of command definitions %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% lilyglyphs logo to be used in texts about lilyglyphs
-% created by genGlyphCommands.py on 2012-11-10
-\newcommand*{\lilyglyphs}[1][]{%
-    \setkeys{lilyDesignOptions}{scale=0.97,raise=-0.78}%
-    \lilyPrintImage[#1]{lilyglyphs_logo}%
+% three beamed quavers, last dotted
+% created by lily-image-commands.py on 2020-04-15
+\newcommand*{\threeBeamedQuaversIIIJazz}[1][]{%
+    \setkeys{lilyDesignOptions}{scale=0.9,raise=-0.6}%
+    \lilyPrintImage[#1]{lily-threeBeamedQuaversIIIJazz}%
 }

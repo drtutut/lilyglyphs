@@ -48,6 +48,8 @@
 % i.e. when developping predefined commands.
 \define@key{lilyDesignOptions}{scale}{\def\lilyDesignOptions@scale{#1}}
 \define@key{lilyDesignOptions}{raise}{\def\lilyDesignOptions@raise{#1}}
+%% nedd only one switch here, which will activate two variables.
+\define@key{lilyDesignoptions}{fontfamily}{\def\lilyDesignOptions@fontfamily{#1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 % Family lilyGlobalOptions

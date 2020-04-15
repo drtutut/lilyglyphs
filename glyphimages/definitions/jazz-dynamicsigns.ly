@@ -30,83 +30,36 @@
 %                                                                        %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\NeedsTeXFormat{LaTeX2e} 
-\ProvidesPackage{lilyglyphs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This file defines a set of glyphs to be compiled in LilyPond %
+%                                                              %
+%   Beamed notes                                               %
+%                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Introduce key=value options
-\RequirePackage{keyval}
+\version "2.20.0"
 
-% Necessary for calculations.
-% TODO: Is that really necessary or can it be achieved much cheaper?
-\RequirePackage{pgf}
 
-% Create a vertically stacked box (time signatures)
-\RequirePackage[export]{adjustbox}
-
-%%%%%%%%%%%%%%%%%%%%%%
-% Core functionality %
-
-% select from the optical sizes fonts
-\input{core/opticals.inp}
-
-% include the functionality for the key=value options
-\input{core/keyval.inp}
-
-% include the basic functionality to select and print glyphs
-\input{core/genericAccess.inp}
-
-% include logic and functionality to create dotted symbols
-\input{core/dotted.inp}
-
-% Core functionality %
-%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Definitions of the glyphs in groups                  %
-% corresponding to the glyph list in the LilyPond docs %
-
-\input{commands/clefs.inp}
-
-\input{commands/numbers.inp}
-
-\input{commands/timesignatures.inp}
-
-\input{commands/dynamics.inp}
-
-\input{commands/accidentals.inp}
-
-%\input{commands/noteheads.inp}
-
-\input{commands/rests.inp}
-
-\input{commands/scripts.inp}
-
-\input{commands/accordion.inp}
-
-% Definitions of complex glyphs created with LilyPond
-% and included as image files
-
-\input{commands/singlenotes.inp}
-
-\input{commands/beamednotes.inp}
-
-\input{commands/fancyexamples.inp}
-
-% Definitions of complex glyphs with jazz style (using lilyjazz font),
-% and included as image files.
-
-\input{commands/jazz-beamednotes.inp}
-
-\input{commands/jazz-dynamics.inp}
-
-\input{commands/jazz-singlenotes.inp}
-
-% End of command definitions %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% lilyglyphs logo to be used in texts about lilyglyphs
-% created by genGlyphCommands.py on 2012-11-10
-\newcommand*{\lilyglyphs}[1][]{%
-    \setkeys{lilyDesignOptions}{scale=0.97,raise=-0.78}%
-    \lilyPrintImage[#1]{lilyglyphs_logo}%
+%%lilyglyphs
+%%protected
+% font=lilyjazz
+% crescendo hairpin
+crescHairpinJazz = {
+  s1\< s4\!
 }
+
+\markup { crescHairpinJazz }
+symbol = \crescHairpinJazz
+\include "score.ily"
+
+
+%%lilyglyphs
+%%protected
+% decrescendo hairpin
+decrescHairpinJazz = {
+  s1\> s4\!
+}
+
+\markup { decrescHairpinJazz }
+symbol = \decrescHairpinJazz
+\include "score.ily"

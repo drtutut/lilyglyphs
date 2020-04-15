@@ -35,6 +35,16 @@
 % and defines the generic printing functionality %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define the musical font family
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% The default musical font is Emmentaler.
+\def\lilyFontPrefix{emmentaler}
+% The following command selects the default font family.  You can
+% change this e.g. to lilyjazz or another musical font, provided that
+% it is properly installed.
+\newcommand{\lilyFontFamily}[1]{\def\lilyFontPrefix{#1}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -42,12 +52,13 @@
 % Users aren't intended to use it directly                      %
 % #1 are key-value options
 % #2 the content to be printed
+% TODO: EW : have to adapt this
 \newcommand*{\lilyPrint}[2][]{%
 	% interpret optional argument
 	\interpretLilyOptions{#1}%
 	% print the glyph in a raisebox
 	\raisebox{\lilyEffectiveRaise ex}{%
-		{\fontspec[Scale=\lilyEffectiveScale]{emmentaler-\lilyOpticalSuffix.otf}#2}%
+		{\fontspec[Scale=\lilyEffectiveScale]{\lilyFontPrefix-\lilyOpticalSuffix.otf}#2}%
 	}%
 }
 
@@ -90,6 +101,7 @@
 % Users aren't intended to use it directly                      %
 % #1 are key-value options
 % #2 the content to be printed
+% TODO: EW : have to adapt this
 \newcommand*{\lilyPrintImage}[2][]{%
 	% interpret optional argument
 	\interpretLilyOptions{#1}%

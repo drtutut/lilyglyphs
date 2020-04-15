@@ -81,7 +81,7 @@ def main():
     # and compile them
     write_lily_src_files()
     print ''
-    lg.compile_lily_files()
+    lg.compile_lily_files(include_path)
     print ''
     
     # remove intermediate files and move pdfs to pdf directory
@@ -121,9 +121,10 @@ def cmd_filename(cmd_name):
     else:
         return 'lily-' + cmd_name
 
-# set default scale and raise arguments to empty
+# set default scale, raise and font arguments to empty
 scale = ''
 rais = ''
+font = ''
 
 def read_entries():
     """Parses the input source file and extracts glyph entries"""
@@ -136,7 +137,7 @@ def read_entries():
 def read_entry(i):
     """Reads a single glyph entry from the input file and stores it
     in the global dictionary lg.in_cmds"""
-    global scale,  rais
+    global scale,  rais, font
     # read comment line(s)
     i += 1
     is_protected = False
@@ -153,6 +154,8 @@ def read_entry(i):
             dummy, scale = line.split('=')
         elif 'raise=' in line:
             dummy,  rais = line.split('=')
+        elif 'font=' in line:
+            dumy, font = line.split('=')
         else:
             line = line[1:].strip()
             comment.append(line)
@@ -187,6 +190,8 @@ def read_entry(i):
             lg.in_cmds[cmd_name]['scale'] = scale
         if rais:
             lg.in_cmds[cmd_name]['raise'] = rais
+        if font:
+            lg.in_cmds[cmd_name]['font'] = font
 
         lg.lily_files.append(cmd_filename(cmd_name))
     return i
@@ -259,6 +264,12 @@ def write_lily_src_files():
         #write the default LilyPond stuff
         fout.write(lily_src_prefix)
 
+        #write the font include stuff
+        if 'font' in lg.in_cmds[cmd_name]:
+            fout.write('\\include "')
+            fout.write(lg.in_cmds[cmd_name]['font'])
+            fout.write('.ily"\n')
+
         # write the comment for the command
         fout.write('%{\n')
         for line in lg.in_cmds[cmd_name]['comment']:
@@ -293,12 +304,16 @@ if __name__ == "__main__":
     # parse command line arguments
     parser = argparse.ArgumentParser(
                       description='Process templates to LilyPond input files,' +
-                      'compile these and generate LaTeX commands.', 
+                      'compile these and generate LaTeX commands.',
                       parents=[lg.common_arguments])
-    parser.add_argument('i', 
+    parser.add_argument('filename', 
                         type=lg.is_file, 
                         metavar='INPUT', 
                         help='File with command templates.')
+    parser.add_argument('-i', '--include',
+                        type=str,
+                        help='Add the specified directory to lilypond include path',
+                        action='append')
     args = parser.parse_args()
     
     # if we have exactly one existing file
@@ -307,7 +322,7 @@ if __name__ == "__main__":
     # process filename argument, providing absolute path
     script_path, script_name = os.path.split(sys.argv[0])
 
-    in_file = os.path.join(os.getcwd(), vars(args)['i'])
+    in_file = os.path.join(os.getcwd(), vars(args)['filename'])
     # check if the input file is in the right place
     # this has to be the definitions subdir of
     # the package directory or the lilyglyphs_private dir
@@ -318,4 +333,7 @@ if __name__ == "__main__":
         usage()
         sys.exit(2)
     in_basename, in_ext = os.path.splitext(in_filename)
+
+    # put include paths into global var
+    include_path = vars(args)['include']
     main()

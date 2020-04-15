@@ -253,12 +253,16 @@ def cleanup_lily_files():
                     os.remove(entry)                    
     os.chdir('..')
     
-def compile_lily_files():
+def compile_lily_files(paths=None):
     """Compiles LilyPond files to """
     print 'Compile with LilyPond:'
     for file in lily_files:
         args = []
         args.append("lilypond")
+        if paths is not None:
+            for idir in paths:
+                args.append("-I")
+                args.append(idir)
         args.append("-o")
         args.append(dir_lysrc)
         args.append("-dpreview")

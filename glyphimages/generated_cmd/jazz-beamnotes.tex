@@ -1,0 +1,139 @@
+% New Glyphs for the lilyglyphs package
+% created by lily-image-commands.py on 2020-04-15
+
+% This file contains definitions for the new commands
+% along with test code for them.
+% You can test the commands in the context of continuous text
+% and adjust their design time options.
+% Afterwards you should manually move the commands to
+% the appropriate .inp files,
+% because this file will be overwritten by the next run
+% of lily-image-commands.py!
+% If you want to keep this file for reference
+% you should save it with a new name.
+%
+% There also is a table containing entries for use in the lilyglyph manual.
+% You can either copy the whole table to the appropriate
+% place in lilyglyphs.tex or just copy individual table rows.
+
+\documentclass{scrartcl}
+\usepackage{lilyglyphsStyle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% new command definitions
+
+% three beamed quavers, last dotted
+% created by lily-image-commands.py on 2020-04-15
+\newcommand*{\threeBeamedQuaversIIIJazz}[1][]{%
+    \setkeys{lilyDesignOptions}{scale=0.9,raise=-0.6}%
+    \lilyPrintImage[#1]{lily-threeBeamedQuaversIIIJazz}%
+}
+
+% three beamed quavers, first dotted
+% created by lily-image-commands.py on 2020-04-15
+\newcommand*{\threeBeamedQuaversIIJazz}[1][]{%
+    \setkeys{lilyDesignOptions}{scale=0.9,raise=-0.6}%
+    \lilyPrintImage[#1]{lily-threeBeamedQuaversIIJazz}%
+}
+
+% three beamed quavers, second dotted
+% created by lily-image-commands.py on 2020-04-15
+\newcommand*{\threeBeamedQuaversIJazz}[1][]{%
+    \setkeys{lilyDesignOptions}{scale=0.9,raise=-0.6}%
+    \lilyPrintImage[#1]{lily-threeBeamedQuaversIJazz}%
+}
+
+% three beamed quavers
+% created by lily-image-commands.py on 2020-04-15
+\newcommand*{\threeBeamedQuaversJazz}[1][]{%
+    \setkeys{lilyDesignOptions}{scale=0.9,raise=-0.6}%
+    \lilyPrintImage[#1]{lily-threeBeamedQuaversJazz}%
+}
+
+% two beamed quavers with diagonal beam
+% created by lily-image-commands.py on 2020-04-15
+\newcommand*{\twoBeamedQuaversJazz}[1][]{%
+    \setkeys{lilyDesignOptions}{scale=1,raise=0}%
+    \lilyPrintImage[#1]{lily-twoBeamedQuaversJazz}%
+}
+
+
+
+\begin{document}
+
+%%%%%%%%%%%%%
+% Text output
+
+\section*{New \lilyglyphs{} commands}
+created by lily-image-commands.py on 2020-04-15
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Reference table to be used in the manual
+% (use complete or single lines)
+
+\begin{reftable}{New commands}{newcommands}
+\threeBeamedQuaversIIIJazz & \cmd{threeBeamedQuaversIIIJazz} & description\\
+\threeBeamedQuaversIIJazz & \cmd{threeBeamedQuaversIIJazz} & description\\
+\threeBeamedQuaversIJazz & \cmd{threeBeamedQuaversIJazz} & description\\
+\threeBeamedQuaversJazz & \cmd{threeBeamedQuaversJazz} & description\\
+\twoBeamedQuaversJazz & \cmd{twoBeamedQuaversJazz} & description\\
+\end{reftable}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Test code for fine-tuning the new commands
+
+
+\noindent\textbf{\textsf{Continuous text for} \cmd{threeBeamedQuaversIIIJazz}:}\\
+Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+sed \threeBeamedQuaversIIIJazz{} do eiusmod tempor incididunt ut labore et dolore magna aliqua \threeBeamedQuaversIIIJazz.\\
+\threeBeamedQuaversIIIJazz{} Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur \threeBeamedQuaversIIIJazz.
+\threeBeamedQuaversIIIJazz{} Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\bigskip
+
+
+\noindent\textbf{\textsf{Continuous text for} \cmd{threeBeamedQuaversIIJazz}:}\\
+Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+sed \threeBeamedQuaversIIJazz{} do eiusmod tempor incididunt ut labore et dolore magna aliqua \threeBeamedQuaversIIJazz.\\
+\threeBeamedQuaversIIJazz{} Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur \threeBeamedQuaversIIJazz.
+\threeBeamedQuaversIIJazz{} Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\bigskip
+
+
+\noindent\textbf{\textsf{Continuous text for} \cmd{threeBeamedQuaversIJazz}:}\\
+Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+sed \threeBeamedQuaversIJazz{} do eiusmod tempor incididunt ut labore et dolore magna aliqua \threeBeamedQuaversIJazz.\\
+\threeBeamedQuaversIJazz{} Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur \threeBeamedQuaversIJazz.
+\threeBeamedQuaversIJazz{} Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\bigskip
+
+
+\noindent\textbf{\textsf{Continuous text for} \cmd{threeBeamedQuaversJazz}:}\\
+Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+sed \threeBeamedQuaversJazz{} do eiusmod tempor incididunt ut labore et dolore magna aliqua \threeBeamedQuaversJazz.\\
+\threeBeamedQuaversJazz{} Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur \threeBeamedQuaversJazz.
+\threeBeamedQuaversJazz{} Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\bigskip
+
+
+\noindent\textbf{\textsf{Continuous text for} \cmd{twoBeamedQuaversJazz}:}\\
+Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+sed \twoBeamedQuaversJazz{} do eiusmod tempor incididunt ut labore et dolore magna aliqua \twoBeamedQuaversJazz.\\
+\twoBeamedQuaversJazz{} Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur \twoBeamedQuaversJazz.
+\twoBeamedQuaversJazz{} Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\bigskip
+\end{document}
